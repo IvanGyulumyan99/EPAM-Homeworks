@@ -1,0 +1,65 @@
+package university;
+
+import university.department.Department;
+import university.exception.NoDepartmentException;
+import university.group.Group;
+import university.student.Student;
+import university.student.StudentMark;
+import university.subject.Subject;
+import university.utility.ArrayUtils;
+
+public class University {
+
+    // Properties
+    private final String name;
+
+    private Department[] departments;
+
+    // Constructors
+    public University(final String name, final Department[] departments) {
+        validate(departments);
+        this.name = name;
+        this.departments = departments;
+    }
+
+    // Properties accessors
+    public String getName() {
+        return name;
+    }
+
+    public Department[] getDepartments() {
+        return departments;
+    }
+
+    // Public methods
+    public double getAvgForSubject(Subject subject) {
+        double sum = 0d;
+        int counter = 0;
+        for (int m = 0; m < departments.length; m++) {
+            Group[] groups = departments[m].getGroups();
+            for (int i = 0; i < groups.length; i++) {
+                Student[] groupStudents = groups[i].getStudents();
+                for (int j = 0; j < groupStudents.length; j++) {
+                    StudentMark[] studentMarks = groupStudents[j].getMarks();
+                    for (int k = 0; k < studentMarks.length; k++) {
+                        if (studentMarks[k].getSubject().equals(subject)) {
+                            sum += studentMarks[k].getMark().getValue();
+                            counter++;
+                        }
+                    }
+                }
+            }
+        }
+        if (counter == 0) {
+            return counter;
+        }
+        return sum / counter;
+    }
+
+    // Utility methods
+    private void validate(Department[] departments) {
+        if (ArrayUtils.isEmptyArray(departments)) {
+            throw new NoDepartmentException();
+        }
+    }
+}
