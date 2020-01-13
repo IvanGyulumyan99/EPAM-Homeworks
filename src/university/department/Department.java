@@ -1,6 +1,6 @@
 package university.department;
 
-import university.department.excpetion.NoGroupException;
+import university.department.exception.NoGroupException;
 import university.group.Group;
 import university.student.Student;
 import university.student.StudentMark;
@@ -9,19 +9,21 @@ import university.utility.ArrayUtils;
 
 public class Department {
 
-    // Properties
+    //region Properties
     private String name;
 
     private Group[] groups;
+    //endregion
 
-    // Constructors
+    //region Constructors
     public Department(String name, Group[] groups) {
         validate(groups);
         this.name = name;
         this.groups = groups;
     }
+    //endregion
 
-    // Properties accessors
+    //region Properties accessors
     public String getName() {
         return name;
     }
@@ -29,7 +31,9 @@ public class Department {
     public Group[] getGroups() {
         return groups;
     }
+    //endregion
 
+    //region Utility methods
     public double getAvgForSubject(Subject subject) {
         double sum = 0d;
         int counter = 0;
@@ -51,7 +55,6 @@ public class Department {
         return sum / counter;
     }
 
-    // Utility methods
     private void validate(Group[] groups) {
         if (ArrayUtils.isEmptyArray(groups)) {
             throw new NoGroupException();
@@ -61,4 +64,5 @@ public class Department {
     public void addGroup(Group group) {
         //todo add groups
     }
+    //endregion
 }

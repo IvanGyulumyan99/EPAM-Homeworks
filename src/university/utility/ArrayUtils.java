@@ -2,14 +2,16 @@ package university.utility;
 
 public class ArrayUtils {
 
-    // Constructors
+    //region Constructors
     private ArrayUtils() {
         //empty private constructor
     }
+    //endregion
 
-    // Public methods
+    //region Public methods
     public static boolean isEmptyArray(Object[] array) {
         return array == null || array.length == 0;
     }
+    //endregion
 
 }

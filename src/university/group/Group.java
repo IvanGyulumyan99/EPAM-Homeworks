@@ -1,6 +1,6 @@
 package university.group;
 
-import university.group.excpetion.NoGroupStudentsException;
+import university.group.exception.NoGroupStudentsException;
 import university.student.Student;
 import university.student.StudentMark;
 import university.subject.Subject;
@@ -8,22 +8,24 @@ import university.utility.ArrayUtils;
 
 public class Group {
 
-    // Properties
+    //region Properties
     private int number;
 
     private Student[] students;
 
     private Subject[] subjects;
+    //endregion
 
-    // Constructors
+    //region Constructors
     public Group(int number, Student[] students, Subject[] subjects) {
         validate(students);
         this.students = students;
         this.number = number;
         this.subjects = subjects;
     }
+    //endregion
 
-    // Properties accessors
+    //region Properties accessors
     public Student[] getStudents() {
         return students;
     }
@@ -36,7 +38,9 @@ public class Group {
         return subjects;
     }
 
-    // Public methods
+    //endregion
+
+    //region Public methods
     public double avgForSubject(Subject subject) {
         double sum = 0d;
         int count = 0;
@@ -54,11 +58,14 @@ public class Group {
         }
         return sum / count;
     }
+    //endregion
 
-    // Utility methods
+    //region Utility methods
     private void validate(Student[] students) {
         if (ArrayUtils.isEmptyArray(students)) {
             throw new NoGroupStudentsException();
         }
     }
+    //endregion
+
 }

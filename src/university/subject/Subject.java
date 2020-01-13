@@ -2,16 +2,20 @@ package university.subject;
 
 public class Subject {
 
-    // Properties
+    //region Properties
     private final String name;
+    //endregion
 
-    // Constructors
+    //region Constructors
     public Subject(final String name) {
         this.name = name;
     }
+    //endregion
 
-    // Properties accessors
+    //region Properties accessors
     public String getName() {
         return name;
     }
+    //endregion
+
 }

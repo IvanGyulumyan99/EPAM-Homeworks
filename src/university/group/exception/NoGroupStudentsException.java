@@ -1,4 +1,4 @@
-package university.group.excpetion;
+package university.group.exception;
 
 public class NoGroupStudentsException extends RuntimeException {
 

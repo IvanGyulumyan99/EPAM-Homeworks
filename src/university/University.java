@@ -10,19 +10,21 @@ import university.utility.ArrayUtils;
 
 public class University {
 
-    // Properties
+    //region Properties
     private final String name;
 
     private Department[] departments;
+    //endregion
 
-    // Constructors
+    //region Constructors
     public University(final String name, final Department[] departments) {
         validate(departments);
         this.name = name;
         this.departments = departments;
     }
+    //endregion
 
-    // Properties accessors
+    //region Properties accessors
     public String getName() {
         return name;
     }
@@ -30,8 +32,9 @@ public class University {
     public Department[] getDepartments() {
         return departments;
     }
+    //endregion
 
-    // Public methods
+    //region Public methods
     public double getAvgForSubject(Subject subject) {
         double sum = 0d;
         int counter = 0;
@@ -55,11 +58,14 @@ public class University {
         }
         return sum / counter;
     }
+    //endregion
 
-    // Utility methods
+    //region Utility methods
     private void validate(Department[] departments) {
         if (ArrayUtils.isEmptyArray(departments)) {
             throw new NoDepartmentException();
         }
     }
+    //endregion
+
 }
