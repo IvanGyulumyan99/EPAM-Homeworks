@@ -31,7 +31,7 @@ public class Group {
     }
 
 
-    public double avgForSubject(Subject subject) {
+    public double getAvgForSubject(Subject subject) {
         double sum = 0d;
         int count = 0;
         for (int i = 0; i < students.length; i++) {
