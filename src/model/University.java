@@ -1,24 +1,20 @@
 package model;
 
 import model.exceptions.NoDepartmentException;
+import model.util.ArrayUtils;
 
 public class University {
 
-    //region Properties
     private final String name;
 
     private Department[] departments;
-    //endregion
 
-    //region Constructors
     public University(final String name, final Department[] departments) {
         validate(departments);
         this.name = name;
         this.departments = departments;
     }
-    //endregion
 
-    //region Properties accessors
     public String getName() {
         return name;
     }
@@ -26,9 +22,7 @@ public class University {
     public Department[] getDepartments() {
         return departments;
     }
-    //endregion
 
-    //region Public methods
     public double getAvgForSubject(Subject subject) {
         double sum = 0d;
         int counter = 0;
@@ -52,14 +46,11 @@ public class University {
         }
         return sum / counter;
     }
-    //endregion
 
-    //region Utility methods
     private void validate(Department[] departments) {
         if (ArrayUtils.isEmptyArray(departments)) {
             throw new NoDepartmentException();
         }
     }
-    //endregion
 
 }

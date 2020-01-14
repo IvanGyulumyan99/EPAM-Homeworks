@@ -1,24 +1,21 @@
 package model;
 
+import model.util.ArrayUtils;
+
 public class Student implements Person {
 
-    //region Properties
     private final String firstName;
 
     private final String lastName;
 
     private StudentMark[] marks;
 
-    //endregion
 
-    //region Constructors
     public Student(final String firstName, final String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    //endregion
 
-    //region Properties accessors
     public String getFirstName() {
         return firstName;
     }
@@ -30,9 +27,7 @@ public class Student implements Person {
     public StudentMark[] getMarks() {
         return marks;
     }
-    //endregion
 
-    //region Utility methods
     public double getAvgMark() {
         double sum = 0;
         for (int i = 0; i < marks.length; i++) {
@@ -47,15 +42,11 @@ public class Student implements Person {
             marks = new StudentMark[1];
             marks[0] = new StudentMark(subject, mark);
         } else {
-            // Create new array with more capacity
             StudentMark[] tempMarks = new StudentMark[marks.length + 1];
-            // Copy old marks to new temporary marks array
             System.arraycopy(marks, 0, tempMarks, 0, marks.length);
-            // Insert new mark to temp array
             tempMarks[marks.length] = new StudentMark(subject, mark);
             marks = tempMarks;
         }
     }
-    //endregion
 
 }

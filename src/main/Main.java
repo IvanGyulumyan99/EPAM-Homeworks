@@ -58,4 +58,3 @@ public class Main {
         return new Group(groupNumber, new Student[]{arg1, arg2}, subjects);
     }
 }
-// commit for opening PR/

@@ -1,27 +1,23 @@
 package model;
 
 import model.exceptions.NoGroupStudentsException;
+import model.util.ArrayUtils;
 
 public class Group {
 
-    //region Properties
     private int number;
 
     private Student[] students;
 
     private Subject[] subjects;
-    //endregion
 
-    //region Constructors
     public Group(int number, Student[] students, Subject[] subjects) {
         validate(students);
         this.students = students;
         this.number = number;
         this.subjects = subjects;
     }
-    //endregion
 
-    //region Properties accessors
     public Student[] getStudents() {
         return students;
     }
@@ -34,9 +30,7 @@ public class Group {
         return subjects;
     }
 
-    //endregion
 
-    //region Public methods
     public double avgForSubject(Subject subject) {
         double sum = 0d;
         int count = 0;
@@ -54,14 +48,11 @@ public class Group {
         }
         return sum / count;
     }
-    //endregion
 
-    //region Utility methods
     private void validate(Student[] students) {
         if (ArrayUtils.isEmptyArray(students)) {
             throw new NoGroupStudentsException();
         }
     }
-    //endregion
 
 }

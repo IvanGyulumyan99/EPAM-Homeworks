@@ -1,24 +1,20 @@
 package model;
 
 import model.exceptions.NoGroupException;
+import model.util.ArrayUtils;
 
 public class Department {
 
-    //region Properties
     private String name;
 
     private Group[] groups;
-    //endregion
 
-    //region Constructors
     public Department(String name, Group[] groups) {
         validate(groups);
         this.name = name;
         this.groups = groups;
     }
-    //endregion
 
-    //region Properties accessors
     public String getName() {
         return name;
     }
@@ -26,9 +22,7 @@ public class Department {
     public Group[] getGroups() {
         return groups;
     }
-    //endregion
 
-    //region Utility methods
     public double getAvgForSubject(Subject subject) {
         double sum = 0d;
         int counter = 0;
@@ -59,5 +53,4 @@ public class Department {
     public void addGroup(Group group) {
         //todo add groups
     }
-    //endregion
 }
