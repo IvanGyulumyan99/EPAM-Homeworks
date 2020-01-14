@@ -1,8 +1,5 @@
 package model;
 
-import model.Mark;
-import model.Subject;
-
 public class StudentMark {
 
     private Subject subject;
